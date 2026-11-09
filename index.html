@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liss - Catálogo Online</title>
+
+  <!-- Ícones do Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body id="topo">
+
+  <!-- =========================================================
+       1. HEADER
+       ========================================================= -->
+  <header class="header-site">
+    <div class="header-container">
+
+      <a href="#topo" class="brand-logo">
+        <img src="assets/images/logo/logo-liss.png" alt="Liss" class="logo-image">
+        <div class="logo-text">
+          <span class="brand-slogan">Estamparia e presente personalizados</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="#topo" class="active">Início</a></li>
+          <li><a href="#catalogo">Loja</a></li>
+          <li class="nav-category">
+            <button class="nav-category-toggle" type="button" aria-expanded="false" aria-controls="categoryDropdown">
+              Categorias <i class="fa-solid fa-chevron-down menu-arrow" aria-hidden="true"></i>
+            </button>
+            <div class="category-dropdown" id="categoryDropdown" role="menu" hidden></div>
+          </li>
+          <li><a href="#contato">Sobre Nós</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <button class="mobile-menu-toggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mainNav">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <form class="search-bar" id="searchForm" role="search">
+        <input id="productSearch" type="search" placeholder="Buscar um produto..." aria-label="Buscar um produto">
+        <button type="submit" aria-label="Buscar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+
+      <div class="user-actions">
+        <a href="#" class="action-btn" title="Minha Conta">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <a href="#" class="action-btn" title="Favoritos">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge badge-heart" id="wishlist-count">0</span>
+        </a>
+        <button type="button" class="action-btn cart-btn" title="Carrinho" aria-label="Abrir carrinho">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="badge badge-cart" id="cart-count">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =========================================================
+         2. BANNER PRINCIPAL (carrossel)
+         ========================================================= -->
+    <section class="hero-banner" aria-label="Destaques da loja">
+      <div class="hero-container" data-carousel>
+        <div class="hero-slides">
+          <div class="hero-slide active" aria-hidden="false">
+            <img src="assets/images/banners/banner1.png" alt="Caneca personalizada Liss, sua bebida favorita na sua caneca">
+          </div>
+          <div class="hero-slide" aria-hidden="true">
+            <img src="assets/images/banners/banner2.png" alt="Camiseta personalizada Liss, seu estilo único na sua camiseta favorita">
+          </div>
+          <div class="hero-slide" aria-hidden="true">
+            <img src="assets/images/banners/banner3.png" alt="Copos personalizados Liss para a sua festa">
+          </div>
+        </div>
+
+        <button class="hero-arrow prev-arrow" type="button" aria-label="Banner anterior">
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button class="hero-arrow next-arrow" type="button" aria-label="Próximo banner">
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
+
+        <div class="hero-dots" role="group" aria-label="Selecionar banner">
+          <button class="dot active" type="button" aria-label="Mostrar banner 1" aria-current="true"></button>
+          <button class="dot" type="button" aria-label="Mostrar banner 2" aria-current="false"></button>
+          <button class="dot" type="button" aria-label="Mostrar banner 3" aria-current="false"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         3. CATEGORIAS
+         ========================================================= -->
+    <section class="section categories-section" id="categorias">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">Nossas categorias</span>
+            <h2 class="section-title">Explore nossos universos</h2>
+          </div>
+          <a href="#catalogo" class="section-link" data-reset-categories>Ver todos os produtos <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="categories-grid">
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-mug-hot"></i></div><span>Canecas</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-shirt"></i></div><span>Camisetas</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-glass-water"></i></div><span>Copos Acrílicos</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-scroll"></i></div><span>Banners e Faixas</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-temperature-arrow-down"></i></div><span>Copos Térmicos</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-border-all"></i></div><span>Azulejos</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-key"></i></div><span>Chaveiros</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-socks"></i></div><span>Chinelos</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-address-card"></i></div><span>Cartões de Visita</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-note-sticky"></i></div><span>Folha Adesiva</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-cubes"></i></div><span>MDF Personalizado</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-couch"></i></div><span>Almofadas</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-bottle-water"></i></div><span>Garrafas</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-wine-glass"></i></div><span>Taças</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-bag-shopping"></i></div><span>Mochilas e bolsas</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-book-open"></i></div><span>Agendas</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-rug"></i></div><span>Mouse Pads</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-puzzle-piece"></i></div><span>Quebra-Cabeças</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-mattress-pillow"></i></div><span>Toalhas</span></a>
+          <a href="#" class="category-card"><div class="category-icon-box"><i class="fa-solid fa-baby"></i></div><span>Body de Bebê</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         4. MAIS VENDIDOS (produtos com desconto)
+         Para ter desconto: adicione <span class="discount-badge"> e
+         <span class="price-old"> no card (veja os exemplos abaixo).
+         ========================================================= -->
+    <section class="section featured-section" id="destaques">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">Produtos favoritos</span>
+            <h2 class="section-title">Os mais vendidos</h2>
+          </div>
+        </div>
+
+        <div class="product-grid">
+
+    <article class="product-card" data-title="Caneca Alça Colorida" data-price="R$ 35,00" data-category="Caneca" data-desc="Acabamento sofisticado e brilho intenso que mantêm sua bebida aquecida e suas memórias sempre vivas." data-img="caneca-colorida.png" data-colors="Amarela, Azul, Cinza, Laranja, Lilas, Marrom, Preta, Rosa, Verde, Vermelha">
+      <span class="discount-badge">-13%</span>
+      <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+      <div class="product-img-box"><img src="caneca-colorida.png" alt="Caneca Alça Colorida"></div>
+      <div class="product-info">
+        <span class="product-category">Caneca</span>
+        <h3 class="product-title">Caneca Alça Colorida</h3>
+        <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+        <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><div class="price-line"><span class="price">R$ 35,00</span><span class="price-old">R$ 40,00</span></div></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+      </div>
+    </article>
+
+    <article class="product-card" data-title="Caneca com Colher" data-price="R$ 45,00" data-category="Caneca" data-desc="Acabamento sofisticado e brilho intenso que mantêm sua bebida aquecida e suas memórias sempre vivas." data-img="caneca-comcolher.png" data-colors="Amarela, Azul, Laranja, Marrom, Preta, Rosa, Verde, Vermelha">
+      <span class="discount-badge">-10%</span>
+      <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+      <div class="product-img-box"><img src="caneca-comcolher.png" alt="Caneca com Colher"></div>
+      <div class="product-info">
+        <span class="product-category">Caneca</span>
+        <h3 class="product-title">Caneca com Colher</h3>
+        <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+        <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><div class="price-line"><span class="price">R$ 45,00</span><span class="price-old">R$ 50,00</span></div></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+      </div>
+    </article>
+
+    <article class="product-card" data-title="Caneca Glitter" data-price="R$ 50,00" data-category="Caneca" data-desc="Acabamento sofisticado e brilho intenso que mantêm sua bebida aquecida e suas memórias sempre vivas." data-img="caneca-glitter.png" data-colors="Rosa, Azul, Prata, Vermelha">
+      <span class="discount-badge">-17%</span>
+      <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+      <div class="product-img-box"><img src="caneca-glitter.png" alt="Caneca Glitter"></div>
+      <div class="product-info">
+        <span class="product-category">Caneca</span>
+        <h3 class="product-title">Caneca Glitter</h3>
+        <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+        <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><div class="price-line"><span class="price">R$ 50,00</span><span class="price-old">R$ 60,00</span></div></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+      </div>
+    </article>
+
+    <article class="product-card" data-title="Caneca Espelhada" data-price="R$ 50,00" data-category="Caneca" data-desc="Acabamento sofisticado e brilho intenso que mantêm sua bebida aquecida e suas memórias sempre vivas." data-img="caneca-espelhada.png" data-colors="Dourada, Prata, Rosé">
+      <span class="discount-badge">-17%</span>
+      <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+      <div class="product-img-box"><img src="caneca-espelhada.png" alt="Caneca Espelhada"></div>
+      <div class="product-info">
+        <span class="product-category">Caneca</span>
+        <h3 class="product-title">Caneca Espelhada</h3>
+        <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+        <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><div class="price-line"><span class="price">R$ 50,00</span><span class="price-old">R$ 60,00</span></div></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+      </div>
+    </article>
+
+    <article class="product-card" data-title="Caneca com Colher" data-price="R$ 45,00" data-category="Caneca" data-desc="Acabamento sofisticado e brilho intenso que mantêm sua bebida aquecida e suas memórias sempre vivas." data-img="caneca-comcolher.png" data-colors="Amarela, Azul, Laranja, Marrom, Preta, Rosa, Verde, Vermelha">
+      <span class="discount-badge">-10%</span>
+      <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+      <div class="product-img-box"><img src="caneca-comcolher.png" alt="Caneca com Colher"></div>
+      <div class="product-info">
+        <span class="product-category">Caneca</span>
+        <h3 class="product-title">Caneca com Colher</h3>
+        <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+        <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><div class="price-line"><span class="price">R$ 45,00</span><span class="price-old">R$ 50,00</span></div></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+      </div>
+    </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section catalog-section" id="catalogo" aria-labelledby="catalogTitle">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">Catálogo completo</span>
+            <h2 class="section-title" id="catalogTitle">Todos os produtos</h2>
+          </div>
+          <p class="catalog-status" id="catalogStatus" role="status" aria-live="polite"></p>
+        </div>
+        <div class="product-grid" id="catalogGrid">
+          <article class="product-card" data-title="Caneca Alça Branca" data-price="R$ 30,00" data-category="Caneca" data-desc="Acabamento sofisticado e brilho intenso que mantêm sua bebida aquecida e suas memórias sempre vivas." data-img="caneca-branca.jpg.png" data-colors="Branca">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="caneca-branca.jpg.png" alt="Caneca Alça Branca"></div>
+            <div class="product-info"><span class="product-category">Caneca</span><h3 class="product-title">Caneca Alça Branca</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 30,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Caneca Tarja Branca" data-price="R$ 40,00" data-category="Caneca" data-desc="Acabamento sofisticado e brilho intenso que mantêm sua bebida aquecida e suas memórias sempre vivas." data-img="caneca-tarjabranca.png" data-colors="Branca">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="caneca-tarjabranca.png" alt="Caneca Tarja Branca"></div>
+            <div class="product-info"><span class="product-category">Caneca</span><h3 class="product-title">Caneca Tarja Branca</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 40,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Caneca Alça Colorida" data-price="R$ 35,00" data-category="Caneca" data-desc="Acabamento sofisticado e brilho intenso que mantêm sua bebida aquecida e suas memórias sempre vivas." data-img="caneca-colorida.png" data-colors="Amarela, Azul, Cinza, Laranja, Lilas, Marrom, Preta, Rosa, Verde, Vermelha">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="caneca-colorida.png" alt="Caneca Alça Colorida"></div>
+            <div class="product-info"><span class="product-category">Caneca</span><h3 class="product-title">Caneca Alça Colorida</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 35,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Caneca Alça de Coração" data-price="R$ 40,00" data-category="Caneca" data-desc="Acabamento sofisticado e brilho intenso que mantêm sua bebida aquecida e suas memórias sempre vivas." data-img="caneca-coracao.jpg" data-colors="Amarela, Azul, Azul escuro, Cinza, Laranja, Lilas, Marrom, Preta, Rosa, Verde, Vermelha">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="caneca-coracao.jpg" alt="Caneca Alça de Coração"></div>
+            <div class="product-info"><span class="product-category">Caneca</span><h3 class="product-title">Caneca Alça de Coração</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 40,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Caneca com Colher" data-price="R$ 45,00" data-category="Caneca" data-desc="Acabamento sofisticado e brilho intenso que mantêm sua bebida aquecida e suas memórias sempre vivas." data-img="caneca-comcolher.png" data-colors="Amarela, Azul, Laranja, Marrom, Preta, Rosa, Verde, Vermelha">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="caneca-comcolher.png" alt="Caneca com Colher"></div>
+            <div class="product-info"><span class="product-category">Caneca</span><h3 class="product-title">Caneca com Colher</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 45,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Caneca Glitter" data-price="R$ 50,00" data-category="Caneca" data-desc="Acabamento sofisticado e brilho intenso que mantêm sua bebida aquecida e suas memórias sempre vivas." data-img="caneca-glitter.png" data-colors="Rosa, Azul, Prata, Vermelha">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="caneca-glitter.png" alt="Caneca Glitter"></div>
+            <div class="product-info"><span class="product-category">Caneca</span><h3 class="product-title">Caneca Glitter</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 50,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Caneca Espelhada" data-price="R$ 50,00" data-category="Caneca" data-desc="Acabamento sofisticado e brilho intenso que mantêm sua bebida aquecida e suas memórias sempre vivas." data-img="caneca-espelhada.png" data-colors="Dourada, Prata, Rosé">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="caneca-espelhada.png" alt="Caneca Espelhada"></div>
+            <div class="product-info"><span class="product-category">Caneca</span><h3 class="product-title">Caneca Espelhada</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 50,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Caneca Alumínio" data-price="R$ 30,00" data-category="Caneca" data-desc="Acabamento sofisticado e brilho intenso que mantêm sua bebida aquecida e suas memórias sempre vivas." data-img="caneca-alumínio.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="caneca-alumínio.png" alt="Caneca Alumínio"></div>
+            <div class="product-info"><span class="product-category">Caneca</span><h3 class="product-title">Caneca Alumínio</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 30,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Caneca Chopp" data-price="R$ 50,00" data-category="Caneca" data-desc="Bebida gelada e sabor inesquecível em cada gole." data-img="caneca-chop.png" data-colors="Preta, Azul, Verde, Branca, Roxa, Vermelha">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="caneca-chop.png" alt="Caneca Chopp"></div>
+            <div class="product-info"><span class="product-category">Caneca</span><h3 class="product-title">Caneca Chopp</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 50,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Camisetas Personalizadas" data-price="R$ 30,00" data-category="Camisetas" data-desc="Conforto e estilo com impressão de alta qualidade que não desbota e garante cores vivas no dia a dia." data-img="imagem-aqui.jpg">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="imagem-aqui.jpg" alt="Camisetas Personalizadas"></div>
+            <div class="product-info"><span class="product-category">Camisetas</span><h3 class="product-title">Camisetas Personalizadas</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 30,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Copo Parede Dupla Glitter Pink 700ml" data-price="R$ 40,00" data-category="Copos Acrílicos" data-desc="Copo acrílico de parede dupla com glitter pink, capacidade de 700 ml." data-img="assets/images/Copos Acrilicos/Copo parede dupla acrílico glitter pink 700ml.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Copos Acrilicos/Copo parede dupla acrílico glitter pink 700ml.png" alt="Copo de parede dupla com glitter pink, 700 ml"></div>
+            <div class="product-info"><span class="product-category">Copos Acrílicos</span><h3 class="product-title">Copo Parede Dupla Glitter Pink 700ml</h3>
+              <div class="product-price-row"><div class="price-box"><span class="price">R$ 40,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Caneca Foto Rosqueável" data-price="R$ 12,00" data-category="Copos Acrílicos" data-desc="Caneca acrílica rosqueável para personalizar com foto." data-img="assets/images/Copos Acrilicos/caneca-foto-rosqueável.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Copos Acrilicos/caneca-foto-rosqueável.png" alt="Caneca foto rosqueável"></div>
+            <div class="product-info"><span class="product-category">Copos Acrílicos</span><h3 class="product-title">Caneca Foto Rosqueável</h3>
+              <div class="product-price-row"><div class="price-box"><span class="price">R$ 12,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Caneca de Gel" data-price="R$ 25,00" data-category="Copos Acrílicos" data-desc="Caneca de gel acrílica." data-img="assets/images/Copos Acrilicos/Caneca de gel.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Copos Acrilicos/Caneca de gel.png" alt="Caneca de gel"></div>
+            <div class="product-info"><span class="product-category">Copos Acrílicos</span><h3 class="product-title">Caneca de Gel</h3>
+              <div class="product-price-row"><div class="price-box"><span class="price">R$ 25,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Caneca Long Degradê" data-price="R$ 10,00" data-category="Copos Acrílicos" data-desc="Caneca long acrílica com acabamento degradê." data-img="assets/images/Copos Acrilicos/Caneca-long-degrade.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Copos Acrilicos/Caneca-long-degrade.png" alt="Caneca long degradê"></div>
+            <div class="product-info"><span class="product-category">Copos Acrílicos</span><h3 class="product-title">Caneca Long Degradê</h3>
+              <div class="product-price-row"><div class="price-box"><span class="price">R$ 10,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Caneca Chopp Acrílica Colorida" data-price="R$ 8,00" data-category="Copos Acrílicos" data-desc="Caneca de chopp acrílica colorida." data-img="assets/images/Copos Acrilicos/Caneca-chop-acrilico-colorido.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Copos Acrilicos/Caneca-chop-acrilico-colorido.png" alt="Caneca de chopp acrílica colorida"></div>
+            <div class="product-info"><span class="product-category">Copos Acrílicos</span><h3 class="product-title">Caneca Chopp Acrílica Colorida</h3>
+              <div class="product-price-row"><div class="price-box"><span class="price">R$ 8,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Caneca Chopp Acrílica Degradê" data-price="R$ 10,00" data-category="Copos Acrílicos" data-desc="Caneca de chopp acrílica com acabamento degradê." data-img="assets/images/Copos Acrilicos/Caneca-chop-acrilico-degrade.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Copos Acrilicos/Caneca-chop-acrilico-degrade.png" alt="Caneca de chopp acrílica degradê"></div>
+            <div class="product-info"><span class="product-category">Copos Acrílicos</span><h3 class="product-title">Caneca Chopp Acrílica Degradê</h3>
+              <div class="product-price-row"><div class="price-box"><span class="price">R$ 10,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Copo Twister Colorido" data-price="R$ 7,00" data-category="Copos Acrílicos" data-desc="Copo twister acrílico colorido disponível em três tamanhos." data-img="assets/images/Copos Acrilicos/Copo-twister-colorido.png" data-variant-label="Tamanho" data-variant-options='[{"value":"300ml","label":"300 ml","price":7},{"value":"500ml","label":"500 ml","price":9},{"value":"700ml","label":"700 ml","price":10}]' data-selected-variant="300ml">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Copos Acrilicos/Copo-twister-colorido.png" alt="Copo twister colorido"></div>
+            <div class="product-info"><span class="product-category">Copos Acrílicos</span><h3 class="product-title">Copo Twister Colorido</h3>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 7,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Copo Twister Degradê" data-price="R$ 9,00" data-category="Copos Acrílicos" data-desc="Copo twister acrílico com acabamento degradê, disponível em dois tamanhos." data-img="assets/images/Copos Acrilicos/Copo-twister-degrade.png" data-variant-label="Tamanho" data-variant-options='[{"value":"500ml","label":"500 ml","price":9},{"value":"700ml","label":"700 ml","price":10}]' data-selected-variant="500ml">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Copos Acrilicos/Copo-twister-degrade.png" alt="Copo twister degradê"></div>
+            <div class="product-info"><span class="product-category">Copos Acrílicos</span><h3 class="product-title">Copo Twister Degradê</h3>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 9,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Copo Twister Transparente" data-price="R$ 7,00" data-category="Copos Acrílicos" data-desc="Copo twister acrílico transparente disponível em três tamanhos." data-img="assets/images/Copos Acrilicos/Copo-twister-transparente.png" data-variant-label="Tamanho" data-variant-options='[{"value":"300ml","label":"300 ml","price":7},{"value":"500ml","label":"500 ml","price":9},{"value":"700ml","label":"700 ml","price":10}]' data-selected-variant="300ml">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Copos Acrilicos/Copo-twister-transparente.png" alt="Copo twister transparente"></div>
+            <div class="product-info"><span class="product-category">Copos Acrílicos</span><h3 class="product-title">Copo Twister Transparente</h3>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 7,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Copo Bucks" data-price="R$ 8,00" data-category="Copos Acrílicos" data-desc="Copo acrílico modelo Bucks." data-img="assets/images/Copos Acrilicos/Copo bucks.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Copos Acrilicos/Copo bucks.png" alt="Copo Bucks"></div>
+            <div class="product-info"><span class="product-category">Copos Acrílicos</span><h3 class="product-title">Copo Bucks</h3>
+              <div class="product-price-row"><div class="price-box"><span class="price">R$ 8,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Long Drink Degradê" data-price="R$ 8,00" data-category="Copos Acrílicos" data-desc="Copo long drink acrílico com acabamento degradê." data-img="assets/images/Copos Acrilicos/Long-Drink-Degrade.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Copos Acrilicos/Long-Drink-Degrade.png" alt="Long drink degradê"></div>
+            <div class="product-info"><span class="product-category">Copos Acrílicos</span><h3 class="product-title">Long Drink Degradê</h3>
+              <div class="product-price-row"><div class="price-box"><span class="price">R$ 8,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Long Drinks" data-price="R$ 6,00" data-category="Copos Acrílicos" data-desc="Copo long drink acrílico." data-img="assets/images/Copos Acrilicos/Long-Drinks.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Copos Acrilicos/Long-Drinks.png" alt="Long drink acrílico"></div>
+            <div class="product-info"><span class="product-category">Copos Acrílicos</span><h3 class="product-title">Long Drinks</h3>
+              <div class="product-price-row"><div class="price-box"><span class="price">R$ 6,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card banner-product-card" data-title="Banner Personalizado" data-price="R$ 40,00" data-category="Banners e Faixas" data-desc="Banner personalizado com tamanhos padrão ou orçamento sob medida. O cálculo personalizado considera R$ 84,00 por metro quadrado, com valor mínimo de R$ 40,00." data-img="assets/images/products/banner-orcamento.png" data-variant-label="Tamanho" data-variant-options='[{"value":"40x60","label":"40 x 60 cm","price":40},{"value":"50x70","label":"50 x 70 cm","price":45},{"value":"60x80","label":"60 x 80 cm","price":50},{"value":"70x100","label":"70 x 100 cm","price":60},{"value":"90x120","label":"90 x 120 cm","price":90}]' data-selected-variant="40x60" data-banner-meter-price="84" data-banner-min-price="40">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/products/banner-orcamento.png" alt="Fórmula de cálculo do orçamento de banner por metro quadrado"></div>
+            <div class="product-info"><span class="product-category">Banners e Faixas</span><h3 class="product-title">Banner Personalizado</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(4.8)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 40,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+              <section class="banner-quote" data-banner-quote aria-label="Calcule o orçamento do banner sob medida">
+                <h4>Orçamento sob medida</h4>
+                <p>R$ 84,00 por m² · mínimo de R$ 40,00</p>
+                <div class="banner-quote-fields">
+                  <label for="bannerWidth">Largura (cm)
+                    <input id="bannerWidth" data-banner-width type="number" min="1" step="any" inputmode="decimal" placeholder="Ex.: 100">
+                  </label>
+                  <label for="bannerHeight">Altura (cm)
+                    <input id="bannerHeight" data-banner-height type="number" min="1" step="any" inputmode="decimal" placeholder="Ex.: 70">
+                  </label>
+                </div>
+                <output class="banner-quote-result" data-banner-quote-result aria-live="polite">Informe a largura e a altura para calcular.</output>
+              </section>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Copos Térmicos" data-price="R$ 35,00" data-category="Copos Térmicos" data-desc="Mantêm sua bebida na temperatura ideal por horas, aliando praticidade, estilo e alta durabilidade." data-img="imagem-aqui.jpg">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="imagem-aqui.jpg" alt="Copos Térmicos"></div>
+            <div class="product-info"><span class="product-category">Copos Térmicos</span><h3 class="product-title">Copos Térmicos</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 35,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Azulejo Personalizado" data-price="R$ 35,00" data-category="Azulejos" data-desc="Uma forma moderna e elegante de eternizar momentos em uma peça decorativa brilhante e resistente." data-img="Azulejo.png" data-variant-label="Tamanho" data-variant-options='[{"value":"15x15","label":"15 x 15 cm","price":25},{"value":"20x20","label":"20 x 20 cm","price":35}]' data-selected-variant="20x20">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="Azulejo.png" alt="Azulejo personalizado"></div>
+            <div class="product-info"><span class="product-category">Azulejos</span><h3 class="product-title">Azulejo Personalizado</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(4.9)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 35,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+    
+          <article class="product-card" data-title="Chaveiro Acrílico" data-price="R$ 5,00" data-category="Chaveiros" data-desc="Chaveiro acrílico personalizado em diferentes formatos." data-img="assets/images/Chaveiro-acrilico/Chaveiro-acrilico-redondo.png" data-variant-label="Formato" data-variant-options='[{"value":"redondo","label":"Redondo","price":5,"image":"assets/images/Chaveiro-acrilico/Chaveiro-acrilico-redondo.png"},{"value":"quadrado","label":"Quadrado","price":5,"image":"assets/images/Chaveiro-acrilico/Chaveiro-acrilico-quadrado.png"},{"value":"coracao","label":"Coração","price":5,"image":"assets/images/Chaveiro-acrilico/Chaveiro-acrilico-coração.png"}]' data-selected-variant="redondo">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Chaveiro-acrilico/Chaveiro-acrilico-redondo.png" alt="Chaveiro Acrílico Redondo"></div>
+            <div class="product-info"><span class="product-category">Chaveiros</span><h3 class="product-title">Chaveiro Acrílico</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(4.7)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 5,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Chaveiro MDF" data-price="R$ 5,00" data-category="Chaveiros" data-desc="Chaveiro MDF personalizado em formato redondo ou quadrado." data-img="assets/images/Chaveiro-MDF/Chaveiro-MDF-redondo.png" data-variant-label="Formato" data-variant-options='[{"value":"redondo","label":"Redondo","price":5,"image":"assets/images/Chaveiro-MDF/Chaveiro-MDF-redondo.png"},{"value":"quadrado","label":"Quadrado","price":5,"image":"assets/images/Chaveiro-MDF/Chaveiro-MDF-quadrado.png"}]' data-selected-variant="redondo">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Chaveiro-MDF/Chaveiro-MDF-redondo.png" alt="Chaveiro MDF Redondo"></div>
+            <div class="product-info"><span class="product-category">Chaveiros</span><h3 class="product-title">Chaveiro MDF</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(4.7)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 5,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Almochaveiro" data-price="R$ 5,00" data-category="Chaveiros" data-desc="O brinde prático e marcante para levar sua marca ou lembrança especial para todos os lugares." data-img="assets/images/products/Almochaveiro.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/products/Almochaveiro.png" alt="Almochaveiro"></div>
+            <div class="product-info"><span class="product-category">Chaveiros</span><h3 class="product-title">Almochaveiro</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(4.7)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 5,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Chinelos" data-price="R$ 25,00" data-category="Chinelos" data-desc="Conforto absoluto para os pés com estampas personalizadas de alta definição e excelente acabamento." data-img="assets/images/products/Chinelo.png" data-variant-label="Tamanho" data-variant-options='[{"value":"21-22","label":"21/22","price":25},{"value":"23-24","label":"23/24","price":25},{"value":"25-26","label":"25/26","price":25},{"value":"27-28","label":"27/28","price":25},{"value":"29-30","label":"29/30","price":25},{"value":"31-32","label":"31/32","price":25},{"value":"33-34","label":"33/34","price":25},{"value":"35-36","label":"35/36","price":25},{"value":"37-38","label":"37/38","price":25},{"value":"39-40","label":"39/40","price":25},{"value":"41-42","label":"41/42","price":25},{"value":"43-44","label":"43/44","price":25}]' data-selected-variant="21-22">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/products/Chinelo.png" alt="Chinelos personalizados"></div>
+            <div class="product-info"><span class="product-category">Chinelos</span><h3 class="product-title">Chinelos</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(4.9)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 25,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Cartões de Visita" data-price="R$ 145,00" data-category="Cartões de Visita" data-desc="A primeira impressão perfeita para o seu negócio, com acabamento profissional e visual marcante." data-img="imagem-aqui.jpg">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="imagem-aqui.jpg" alt="Cartões de Visita"></div>
+            <div class="product-info"><span class="product-category">Cartões de Visita</span><h3 class="product-title">Cartões de Visita</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 145,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Folha Adesiva Com Recorte" data-price="R$ 10,00" data-category="Folha Adesiva" data-desc="Versatilidade total para personalizar embalagens e produtos com corte preciso e excelente fixação." data-img="imagem-aqui.jpg">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="imagem-aqui.jpg" alt="Folha Adesiva Com Recorte"></div>
+            <div class="product-info"><span class="product-category">Folha Adesiva</span><h3 class="product-title">Folha Adesiva Com Recorte</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(4.9)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 10,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Placa MDF" data-price="R$ 12,00" data-category="MDF Personalizado" data-desc="Placas MDF personalizadas em diferentes tamanhos." data-img="assets/images/Placa MDF/Placa MDF Tam 10x10.png" data-variant-label="Tamanho" data-variant-options='[{"value":"10x10","label":"10 x 10 cm","price":12,"image":"assets/images/Placa MDF/Placa MDF Tam 10x10.png"},{"value":"10x15","label":"10 x 15 cm","price":15,"image":"assets/images/Placa MDF/Placa MDF Tam 10x15.png"},{"value":"15x15","label":"15 x 15 cm","price":18,"image":"assets/images/Placa MDF/Placa MDF Tam 15x15.png"},{"value":"20x20","label":"20 x 20 cm","price":20,"image":"assets/images/Placa MDF/Placa MDF Tam 20x20.png"},{"value":"A4","label":"A4","price":25,"image":"assets/images/Placa MDF/Placa MDF Tam A4.png"}]' data-selected-variant="10x10">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Placa MDF/Placa MDF Tam 10x10.png" alt="Placa MDF 10 x 10 cm"></div>
+            <div class="product-info"><span class="product-category">MDF Personalizado</span><h3 class="product-title">Placa MDF</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 12,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Almofada 15 x 15 cm" data-price="R$ 15,00" data-category="Almofadas" data-desc="Almofada personalizada no tamanho 15 x 15 cm." data-img="assets/images/Almofadas/Almofada 15x15.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Almofadas/Almofada 15x15.png" alt="Almofada 15 x 15 cm"></div>
+            <div class="product-info"><span class="product-category">Almofadas</span><h3 class="product-title">Almofada 15 x 15 cm</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 15,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Almofada 15 x 20 cm" data-price="R$ 15,00" data-category="Almofadas" data-desc="Almofada personalizada no tamanho 15 x 20 cm." data-img="assets/images/Almofadas/Almofada 15x20.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Almofadas/Almofada 15x20.png" alt="Almofada 15 x 20 cm"></div>
+            <div class="product-info"><span class="product-category">Almofadas</span><h3 class="product-title">Almofada 15 x 20 cm</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 15,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Almofada 20 x 30 cm" data-price="R$ 25,00" data-category="Almofadas" data-desc="Almofada personalizada no tamanho 20 x 30 cm." data-img="assets/images/Almofadas/Almofada 20x30.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Almofadas/Almofada 20x30.png" alt="Almofada 20 x 30 cm"></div>
+            <div class="product-info"><span class="product-category">Almofadas</span><h3 class="product-title">Almofada 20 x 30 cm</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 25,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Almofada 40 x 40 cm" data-price="R$ 45,00" data-category="Almofadas" data-desc="Almofada personalizada no tamanho 40 x 40 cm." data-img="assets/images/Almofadas/Almofada 40x40.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Almofadas/Almofada 40x40.png" alt="Almofada 40 x 40 cm"></div>
+            <div class="product-info"><span class="product-category">Almofadas</span><h3 class="product-title">Almofada 40 x 40 cm</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 45,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Garrafas" data-price="R$ 35,00" data-category="Garrafas" data-desc="Praticidade e hidratação com estilo, feitas em materiais resistentes para acompanhar sua rotina." data-img="imagem-aqui.jpg">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="imagem-aqui.jpg" alt="Garrafas"></div>
+            <div class="product-info"><span class="product-category">Garrafas</span><h3 class="product-title">Garrafas</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(4.9)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 35,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Taças de Gin" data-price="R$ 15,00" data-category="Taças" data-desc="Taças de gin personalizadas disponíveis nos modelos colorido e degradê." data-img="assets/images/Taça de Gin/Taça de Gin cores.png" data-variant-label="Modelo" data-variant-options='[{"value":"cores","label":"Cores","price":15,"image":"assets/images/Taça de Gin/Taça de Gin cores.png"},{"value":"degrade","label":"Degradê","price":15,"image":"assets/images/Taça de Gin/Taça de Gin degrade.png"}]' data-selected-variant="cores">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Taça de Gin/Taça de Gin cores.png" alt="Taça de gin colorida"></div>
+            <div class="product-info"><span class="product-category">Taças</span><h3 class="product-title">Taças de Gin</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 15,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Taças de Champanhe" data-price="R$ 8,00" data-category="Taças" data-desc="Taça de champanhe personalizada disponível em cores." data-img="assets/images/Taça de Champanhe/Taça de champanhe cores.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Taça de Champanhe/Taça de champanhe cores.png" alt="Taça de champanhe colorida"></div>
+            <div class="product-info"><span class="product-category">Taças</span><h3 class="product-title">Taças de Champanhe</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(4.9)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 8,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Ecobags" data-price="R$ 40,00" data-category="Mochilas e bolsas" data-desc="Sustentabilidade e praticidade no dia a dia com sacolas ecológicas resistentes e cheias de estilo." data-img="assets/images/products/Ecobag.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/products/Ecobag.png" alt="Ecobag personalizada"></div>
+            <div class="product-info"><span class="product-category">Mochilas e bolsas</span><h3 class="product-title">Ecobags</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(4.8)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 40,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Agendas" data-price="R$ 60,00" data-category="Agendas" data-desc="Organização diária com toque exclusivo, capa dura resistente e acabamento de alta qualidade." data-img="Agenda.png">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="Agenda.png" alt="Agendas"></div>
+            <div class="product-info"><span class="product-category">Agendas</span><h3 class="product-title">Agendas</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 60,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Mouse Pads" data-price="R$ 15,00" data-category="Mouse Pads" data-desc="Mouse pad personalizado disponível nos formatos quadrado e redondo." data-img="assets/images/Mouse pad/Mouse pad Quadrado.png" data-variant-label="Formato" data-variant-options='[{"value":"quadrado","label":"Quadrado","price":15,"image":"assets/images/Mouse pad/Mouse pad Quadrado.png"},{"value":"redondo","label":"Redondo","price":15,"image":"assets/images/Mouse pad/Mouse pad Redondo.png"}]' data-selected-variant="quadrado">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/Mouse pad/Mouse pad Quadrado.png" alt="Mouse pad quadrado"></div>
+            <div class="product-info"><span class="product-category">Mouse Pads</span><h3 class="product-title">Mouse Pads</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(4.9)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 15,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Quebra-Cabeças" data-price="R$ 15,00" data-category="Quebra-Cabeças" data-desc="Diversão garantida ao transformar suas fotos e memórias favoritas em um jogo personalizado." data-img="imagem-aqui.jpg">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="imagem-aqui.jpg" alt="Quebra-Cabeças"></div>
+            <div class="product-info"><span class="product-category">Quebra-Cabeças</span><h3 class="product-title">Quebra-Cabeças</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(4.8)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 15,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Toalhas" data-price="R$ 15,00" data-category="Toalhas" data-desc="Toalhas macias com barra personalizada, disponíveis nos modelos de mão e rosto." data-img="assets/images/products/Toalha de Mão.png" data-variant-label="Modelo" data-variant-options='[{"value":"mao","label":"Toalha de Mão","price":15,"image":"assets/images/products/Toalha de Mão.png"},{"value":"rosto","label":"Toalha de Rosto","price":25,"image":"assets/images/products/Toalha de Rosto.png"}]' data-selected-variant="mao">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="assets/images/products/Toalha de Mão.png" alt="Toalha de mão personalizada"></div>
+            <div class="product-info"><span class="product-category">Toalhas</span><h3 class="product-title">Toalhas</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(4.9)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 15,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Body de Bebê" data-price="R$ 25,00" data-category="Body de Bebê" data-desc="Macio e delicado para a pele do bebê, unindo máximo conforto a estampas fofas e divertidas." data-img="imagem-aqui.jpg">
+            <button class="wishlist-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+            <div class="product-img-box"><img src="imagem-aqui.jpg" alt="Body de Bebê"></div>
+            <div class="product-info"><span class="product-category">Body de Bebê</span><h3 class="product-title">Body de Bebê</h3>
+              <div class="product-rating"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="rating-count">(5.0)</span></div>
+              <div class="product-price-row"><div class="price-box"><span class="price-label">A partir de</span><span class="price">R$ 25,00</span></div><button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar</button></div>
+            </div>
+          </article>
+        </div>
+        <p class="catalog-empty" id="catalogEmpty" hidden>Nenhum produto encontrado. Tente outra busca ou categoria.</p>
+      </div>
+    </section>
+
+    
+    <!-- =========================================================
+         5. BANNER PROMOCIONAL
+         ========================================================= -->
+    <section class="section promo-section" aria-label="Oferta especial">
+      <div class="container">
+        <div class="promo-banner">
+          <div class="promo-content">
+            <span class="promo-tag">Oferta especial</span>
+            <h2 class="promo-title">Até <strong>30% OFF</strong><br>em itens selecionados</h2>
+            <p class="promo-text">Personalize canecas, camisetas, copos e muito mais com condições especiais por tempo limitado.</p>
+            <a href="#catalogo" class="btn-promo">Ver a oferta <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+          <!-- Troque este bloco por <img src="assets/images/banners/promo.png" alt="..."> quando tiver a arte -->
+          <div class="promo-visual" aria-hidden="true">
+            <span class="promo-icon promo-icon-1"><i class="fa-solid fa-mug-hot"></i></span>
+            <span class="promo-icon promo-icon-2"><i class="fa-solid fa-shirt"></i></span>
+            <span class="promo-icon promo-icon-3"><i class="fa-solid fa-glass-water"></i></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         7. FAIXA DE BENEFÍCIOS
+         ========================================================= -->
+    <section class="section benefits-section" aria-label="Nossos diferenciais">
+      <div class="container">
+        <ul class="benefits-bar">
+          <li class="benefit-item">
+            <i class="fa-solid fa-palette"></i>
+            <div><strong>Personalização sob medida</strong><span>Do seu jeito, com a sua arte</span></div>
+          </li>
+          <li class="benefit-item">
+            <i class="fa-solid fa-truck-fast"></i>
+            <div><strong>Entrega rápida</strong><span>Consulte o prazo para a sua região</span></div>
+          </li>
+          <li class="benefit-item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <div><strong>Pagamento seguro</strong><span>Compre com tranquilidade</span></div>
+          </li>
+          <li class="benefit-item">
+            <i class="fa-solid fa-headset"></i>
+            <div><strong>Atendimento humano</strong><span>Fale com a gente pelo WhatsApp</span></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       8. RODAPÉ
+       ========================================================= -->
+  <footer class="footer-site" id="contato">
+    <div class="container footer-grid">
+
+      <div class="footer-col footer-brand-col">
+        <span class="footer-brand">Liss</span>
+        <p class="footer-slogan">Estamparia e presente personalizados</p>
+        <p class="footer-text">Sua loja de personalizados para transformar ideias em produtos únicos, do pedido à entrega.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-title">Links úteis</h3>
+        <ul class="footer-links">
+          <li><a href="#topo">Início</a></li>
+          <li><a href="#catalogo">Loja</a></li>
+          <li><a href="#categorias">Categorias</a></li>
+          <li><a href="#contato">Sobre nós</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-title">Siga-nos</h3>
+        <div class="footer-social">
+          <!-- Troque os "#" pelos links reais -->
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-title">Newsletter</h3>
+        <p class="footer-text">Receba ofertas exclusivas e novidades.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Seu e-mail" aria-label="Seu e-mail" required>
+          <button type="submit" aria-label="Assinar newsletter"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+        <p class="newsletter-msg" id="newsletterMsg" role="status"></p>
+      </div>
+
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© 2026 Liss. Todos os direitos reservados.</span>
+      <span class="footer-legal"><a href="#">Termos de uso</a><a href="#">Política de privacidade</a></span>
+    </div>
+  </footer>
+<!-- Font Awesome para ícones -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</body>
+</html>
