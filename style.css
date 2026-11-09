@@ -1,8 +1,1 @@
 @import url("https://raw.githubusercontent.com/lissestamparia2-max/Catalogo/9884a89bf8309f1a4814557cccda8fde92811d67/style.css");
-
-/* Reduz a altura das imagens dos produtos em telas de celular. */
-@media (max-width: 600px) {
-  .product-img-box {
-    height: 170px;
-  }
-}
